@@ -1,3 +1,7 @@
+# What is it
+I am exploring `agave` client and want to understand all details, so I created this repo to put my notes on existing programs to have reference on - why thing written this way, what it means, what's the story of changes and SIMDs that lead to the current state of the client. Done in exploration purposes
+
+# Agave
 <p align="center">
   <a href="https://anza.xyz">
     <img alt="Anza" src="https://i.postimg.cc/VkKTnMM9/agave-logo-talc-1.png" width="250" />
