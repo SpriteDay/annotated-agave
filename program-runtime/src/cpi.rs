@@ -170,6 +170,13 @@ fn check_account_infos(num_account_infos: usize) -> Result<(), Error> {
     Ok(())
 }
 
+// Explaining what this thing is - originally comes from code dated 2021 January and December
+// Code was passed during the trnasition from solana-labs/solana to anza-xyz/agave
+// The original blame history of manufacturing this logic stored here:
+// https://github.com/solana-labs/solana/blame/9714cb37641a8679982ee70a976b09757555b23f/programs/bpf_loader/src/syscalls.rs#L2788
+// This check function was also mentioned in [SIMD-0163](https://github.com/solana-foundation/solana-improvement-documents/blob/main/proposals/0163-lift-cpi-caller-restriction.md)
+// That was created and discussed in this PR: https://github.com/solana-foundation/solana-improvement-documents/pull/163
+// And was withdrawn in this PR due to security considerations: https://github.com/solana-foundation/solana-improvement-documents/pull/308
 /// Check whether a program is authorized for CPI
 fn check_authorized_program(
     program_id: &Pubkey,
