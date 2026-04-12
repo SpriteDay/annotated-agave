@@ -483,12 +483,18 @@ impl<'a> CallerAccount<'a> {
             check_aligned,
         )?;
 
+        // If `syscall_parameter_address_restrictions` described in SIMD-0459 is not enabled,
+        // agave calculates CU cost of moving the account of given length, defined by `cpi_bytes_per_unit`
+        // variable, which is defined in `program-runtime/src/execution_budget`, at `impl Default for SVMTransactionExecutionCost`
+        // and equals `250`
         if !syscall_parameter_address_restrictions {
             // Moved to translate_accounts_common() via feature gate.
+            // Checking if cost of moving account data exceeds transaction CU limit
             invoke_context.consume_checked(
                 account_info
                     .data_len
                     .checked_div(invoke_context.get_execution_cost().cpi_bytes_per_unit)
+                    // Safe fallback if division failed
                     .unwrap_or(u64::MAX),
             )?;
         }
