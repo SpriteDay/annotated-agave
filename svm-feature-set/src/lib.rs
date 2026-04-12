@@ -1,3 +1,4 @@
+// Detailed descriptions of SVM features can be found at `feature-set/src/lib.rs` at `FEATURE_NAMES`
 #![cfg(feature = "agave-unstable-api")]
 #[derive(Clone, Copy, Default)]
 pub struct SVMFeatureSet {
