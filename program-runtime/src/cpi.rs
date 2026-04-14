@@ -588,6 +588,7 @@ pub fn translate_instruction_rust(
 
     check_instruction_size(account_metas.len(), data.len())?;
 
+    // General data translation cost
     let mut total_cu_translation_cost: u64 = (data.len() as u64)
         .checked_div(invoke_context.get_execution_cost().cpi_bytes_per_unit)
         .unwrap_or(u64::MAX);
