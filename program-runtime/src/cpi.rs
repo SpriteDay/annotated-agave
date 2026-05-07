@@ -1,5 +1,9 @@
 //! Cross-Program Invocation (CPI) error types
 
+// `cpi.rs` contains logic for cross-program invocation, handling the address translation - from program to
+// host memory and back, and handles execution for Rust programs and C programs, also checks if program
+// is allowed to make specified CPI call 
+
 use {
     crate::{
         invoke_context::{InvokeContext, SerializedAccountMetadata},
