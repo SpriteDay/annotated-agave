@@ -40,11 +40,13 @@ use {
 
 // Per SIMD-0186, all accounts are assigned a base size of 64 bytes to cover
 // the storage cost of metadata.
+// SIMD - 0186: https://github.com/solana-foundation/solana-improvement-documents/blob/main/proposals/0186-loaded-transaction-data-size-specification.md
 #[cfg_attr(feature = "dev-context-only-utils", qualifiers(pub))]
 pub(crate) const TRANSACTION_ACCOUNT_BASE_SIZE: usize = 64;
 
 // Per SIMD-0186, resolved address lookup tables are assigned a base size of 8248
 // bytes: 8192 bytes for the maximum table size plus 56 bytes for metadata.
+// SIMD - 0186: https://github.com/solana-foundation/solana-improvement-documents/blob/main/proposals/0186-loaded-transaction-data-size-specification.md
 const ADDRESS_LOOKUP_TABLE_BASE_SIZE: usize = 8248;
 
 // for the load instructions
